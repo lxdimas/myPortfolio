@@ -117,6 +117,7 @@ a {
   background: rgba(45,164,225,0);
   padding: 15px;
   border-radius: 50%;
+  z-index: 30;
 }
 
 .menu-control .btn{
@@ -134,11 +135,49 @@ a {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), /*url("../img/masthead.jpg")*/;
+  /*background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), /*url("../img/masthead.jpg");*/
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 30;
 }
+
+.custom-btn {
+  width: 200px;
+  height: 70px;
+  position: relative;
+  left: 50%;
+  margin-left:-100px;
+  perspective: 1000px;
+}
+.custom-btn-front, .custom-btn-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  font-family: 'Source Sans Pro';
+  font-size: 24px;
+  font-weight: 700;
+}
+.custom-btn-front {
+  background-color: rgba(0,0,0,0);
+  border:1px #fff solid;
+  color: #fff;
+}
+.custom-btn-back {
+  background-color: #fff;
+  color: #333;
+  transform: rotateY(180deg);
+}
+.custom-btn:hover .custom-btn-front {transform: rotateY(180deg);}
+.custom-btn:hover .custom-btn-back {transform: rotateY(360deg);}
 
 .masthead h1 {
   font-size: 4rem;
@@ -155,9 +194,7 @@ a {
   }
 }
 
-.navbar {
-  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 100%);
-}
+
 
 /* Side Menu */
 #sidebar-wrapper {
@@ -192,11 +229,20 @@ a {
   padding: 15px 30px;
 }
 
+.menu-block {
+  display: inline-block;
+  width: 100% !important;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 1%;
+  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 100%);
+}
+
 .sidebar-nav-item {
   border-top-width: 0;
   border-bottom-width: 0;
   padding: 10px 0;
-  background: #F1F3CE;
+  background: #fff;
   margin-bottom: 5px;
 }
 
@@ -612,6 +658,15 @@ a:hover, a:focus, a:active {
 }
 
 
+/*
+#########
+#########
+background-css
+#########
+#########
+*/
+
+
 .pulser {
   width: 90vmin;
   height: 90vmin;
@@ -627,6 +682,7 @@ main {
   width: 90vmin;
   height: 90vmin;
   position: relative;
+  z-index: 10;
 }
 .background-container {
   background: #00293C;
@@ -646,4 +702,55 @@ main {
   100% {
     filter: hue-rotate(360deg) blur(20vmin);
   }
+}
+
+/*
+#########
+#########
+background-particles-css
+#########
+#########
+*/
+
+canvas{
+  display: block; 
+  vertical-align: bottom; 
+} /* ---- particles.js container ---- */ 
+#particles-js{ 
+  position:absolute; 
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(40,40,40,0); 
+  z-index: 20;
+}
+/* ---- stats.js ---- */ 
+.count-particles{ 
+  background: #000022; 
+  position: absolute; 
+  top: 48px; 
+  left: 0; 
+  width: 80px; 
+  color: #13E8E9; 
+  font-size: .8em; 
+  text-align: left; 
+  text-indent: 4px; 
+  line-height: 14px; 
+  padding-bottom: 2px; 
+  font-family: Helvetica, Arial, sans-serif; 
+  font-weight: bold; 
+} 
+.js-count-particles{ 
+  font-size: 1.1em; 
+} 
+#stats, .count-particles{ 
+  -webkit-user-select: none; 
+  margin-top: 5px; 
+  margin-left: 5px; 
+} 
+#stats{ 
+  border-radius: 3px 3px 0 0; 
+  overflow: hidden; 
+} 
+.count-particles{ 
+  border-radius: 0 0 3px 3px; 
 }
